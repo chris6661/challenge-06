@@ -1,3 +1,6 @@
+var cities; 
+var apikey = "5387c985f4e91ddb7edd648ae64e08cc";
+
 // USER STORY
 
 // AS A traveler
