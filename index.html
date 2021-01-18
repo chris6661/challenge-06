@@ -8,6 +8,8 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
@@ -16,57 +18,70 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!--HTML time-->
-    <title>Weather</title>
+    <title>Weather Dashboard</title>
 </head>
 
-<body>
-    <!--navbar-->
-    <nav class="navbar navbar-dark bg-dark">
-        <h5 class="navbar-brand mb-0 w-100 text-center">Weather Dashboard</h5>
-    </nav>
-    <div clas="container-fluid mb-3">
-        <div class="row" id="main-header">
-            <div class="col-md-3 bg-light">
-                <p class="display font-weight-bold my-2">Search For A City:</p>
+<!--navbar-->
 
-                <form class="input-group mb-3">
-                    <input class="form-control" type="search" id="city-name" placeholder="Search" aria-label="search">
-                    <button type="submit" class="btn btn btn-primary" id="city-search">
-                        <i class="fa fa-search"></i></button>
-                </form>
-
-                <div class="card" id="buttons-view">
-                    <ul class="list-group" id="list"></ul>
-                </div>
-            </div>
-
-            <div class="col-md-8 mr-2">
-                <div class="row">
-                    <div class="card col-md-12 ml-3 mr-3 mt-3" id="current">
-                        <div class="card-body">
-                            <div class="currenttemp" id="current-day">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="mt-3 mb-3 ml-3 mr-3" id="5DayForecast">5 Day Forecast</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="card-deck col-md-12 ml-3 mr-3 mt-3" id="forecast">
-
-
-
+<body class="h-100">
+    <main class="container-fluid h-100 d-flex flex-column">
+        <div class="row">
+            <div class="col p-0">
+                <div class="jumbotron jumbotron-fluid py-1 mb-0 bg-dark">
+                    <div class="container-fluid">
+                        <h1 class="text-center text-light">Weather Dashboard</h1>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
+        <!--dashboard-->
+
+        <div class="row" id="dashboard">
+
+            <!--search bar-->
+            <div class="col col-lg-3 py-3 bg-light" id="search-bar">
+                <form class="form-group" id="search-city">
+                    <label for="city-name" class="h4">Search For A City</label>
+                    <div class="form-inline">
+                        <input type="text" class="form-control w-75" id="city-name">
+                        <button type="submit" class="btn btn-primary" id="search"><i class="fas fa-search"></i></button>
+                    </div>
+                    <p class="text-danger" id="error"></p>
+                </form>
+
+                <!--search history-->
+                <div class="card">
+                    <div class="card-header h5 text-center">Search History
+
+                    </div>
+                    <ul class="list-group list-group-flush" id="search-history">
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-9 py-3" id="city-info" data-city="">
+                <div class="w-100 h-100 d-flex" id="start-text">
+                    <h2 class="m-auto font-weight-normal">Enter a city name to view <br>weather information.</h2>
+                </div>
+                <div class="row mb-4" id="curr-weather-row">
+                    <div class="col">
+                        <div class="card" id="current-weather">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="daily-weather-row">
+                    <div class="col">
+                        <h3>5 Day Forecast</h3>
+                        <div class="row" id="five-day-forecast-cards">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
