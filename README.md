@@ -8,4 +8,4 @@
  * Moment.js
  * JavaScript
 
- <img src = "./assets/images/Screenshot(4).png" alt = ""/>
+ <img src = "assets/images/Screenshot(4).png" alt = ""/>
